@@ -30,3 +30,6 @@ kubectl get --raw='/readyz?verbose'
 
 kubectl logs -f pod-name
 kubectl describe pod pod-name
+
+#5
+kubectl get nodes --show-labels
