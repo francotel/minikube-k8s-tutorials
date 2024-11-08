@@ -40,11 +40,6 @@ env/
 *.classpath
 *.settings/
 
-# Ignorar archivos de configuración de CI/CD
-*.yml
-*.yaml
-*.json
-
 # Ignorar archivos de salida de pruebas y resultados de linting
 coverage/
 *.coverage
