@@ -25,3 +25,8 @@ kubectl exec ingress-nginx-controller-78dd8df674-v4fsv -n ingress-nginx -- cat /
 kubectl get pods -n kube-system
 kubectl get componentstatuses
 kubectl get --raw='/readyz?verbose'
+
+#2
+
+kubectl logs -f pod-name
+kubectl describe pod pod-name
