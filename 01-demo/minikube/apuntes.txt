@@ -1,7 +1,7 @@
 minikube start --driver=virtualbox -p local-k8s --memory=2048mb
 minikube start --kubernetes-version=v1.29 --driver=docker -p local-k8s --memory=2048mb
 
-minikube start --nodes 3 -p local-cluster-vibhor --driver=docker
+minikube start --nodes 3 -p local-k8s --driver=docker
 
 minikube kubectl -- get nodes -o yaml | grep "kubernetesVersion"
 
@@ -10,7 +10,18 @@ minikube addons enable dashboard
 minikube addons enable metrics-server
 minikube dashboard
 
+# 1
+kubectl get pods --show-labels
+kubectl get endpoints my-service
+kubectl get svc my-service -o wide
+kubectl port-forward service/my-service 3000:7070
+curl localhost:3000/api/devices
 
+minikube addons enable ingress -p local-k8s
+minikube ip
+
+
+10.244.0.3:8080
 kubectl get pods -n kube-system
 kubectl get componentstatuses
 kubectl get --raw='/readyz?verbose'
