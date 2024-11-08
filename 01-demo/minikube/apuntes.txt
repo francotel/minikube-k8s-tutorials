@@ -20,8 +20,8 @@ curl localhost:3000/api/devices
 minikube addons enable ingress -p local-k8s
 minikube ip
 
+kubectl exec ingress-nginx-controller-78dd8df674-v4fsv -n ingress-nginx -- cat /etc/nginx/nginx.conf
 
-10.244.0.3:8080
 kubectl get pods -n kube-system
 kubectl get componentstatuses
 kubectl get --raw='/readyz?verbose'
