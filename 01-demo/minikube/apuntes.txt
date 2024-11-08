@@ -1,7 +1,7 @@
 minikube start --driver=virtualbox -p local-k8s --memory=2048mb
 minikube start --kubernetes-version=v1.29 --driver=docker -p local-k8s --memory=2048mb
 
-minikube start --nodes 3 -p local-k8s --driver=docker
+minikube start --kubernetes-version=v1.29 --memory=4096mb --nodes 3 -p local-k8s --driver=docker
 
 minikube kubectl -- get nodes -o yaml | grep "kubernetesVersion"
 
@@ -33,3 +33,6 @@ kubectl describe pod pod-name
 
 #5
 kubectl get nodes --show-labels
+
+#6
+kubectl get svc --all-namespaces
