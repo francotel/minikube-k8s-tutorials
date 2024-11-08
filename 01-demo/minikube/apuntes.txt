@@ -1,0 +1,16 @@
+minikube start --driver=virtualbox -p local-k8s --memory=2048mb
+minikube start --kubernetes-version=v1.29 --driver=docker -p local-k8s --memory=2048mb
+
+minikube start --nodes 3 -p local-cluster-vibhor --driver=docker
+
+minikube kubectl -- get nodes -o yaml | grep "kubernetesVersion"
+
+
+minikube addons enable dashboard
+minikube addons enable metrics-server
+minikube dashboard
+
+
+kubectl get pods -n kube-system
+kubectl get componentstatuses
+kubectl get --raw='/readyz?verbose'
